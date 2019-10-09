@@ -3,11 +3,11 @@
 // we can now import from the directory instead of the file 😃
 import { combineReducers } from 'redux';
 
-import {CarReducers}  from './CarReducers';
+import { CarReducers as Car } from './CarReducers';
 
 // export const reducer = combineReducers({})
 
 export default combineReducers({
-  CarReducers
+  Car
   // otherReducers
 });
