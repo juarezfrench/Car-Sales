@@ -1,12 +1,12 @@
 import React from 'react';
-
+import {connect} from 'react-redux'
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
 const App = () => {
-  const state = {
+  const props = {
     additionalPrice: 0,
     car: {
       price: 26395,
@@ -34,15 +34,22 @@ const App = () => {
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={state.car} />
-        <AddedFeatures car={state.car} />
+        <Header car={props.car} />
+        <AddedFeatures car={props.car} />
       </div>
       <div className="box">
-        <AdditionalFeatures store={state.store} />
-        <Total car={state.car} additionalPrice={state.additionalPrice} />
+        <AdditionalFeatures store={props.store} />
+        <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
   );
 };
+const mappropsToProps = props => {
+  return {
+    additionalPrice: props.additionalPrice,
+    car: props.car
+  }
+}
 
-export default App;
+export default connect(mappropsToProps, {})(App);
+
